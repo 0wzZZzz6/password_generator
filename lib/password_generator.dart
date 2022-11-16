@@ -20,20 +20,20 @@ class PasswordGenerator {
  * @return string: new password
  */
   String generatePassword({
-    bool isWithLetters = true,
-    bool isWithUppercase = true,
-    bool isWithNumbers = true,
-    bool isWithSpecial = true,
-    int numberCharPassword = 12,
+    bool allowLowercase = true,
+    bool allowUppercase = true,
+    bool allowNumbers = true,
+    bool allowSpecialChars = true,
+    int length = 12,
   }) {
     //Create the empty string that will contain the allowed chars
     String allowedChars = "";
 
     //Put chars on the allowed ones based on the input values
-    allowedChars += (isWithLetters ? _lowerCaseLetters : '');
-    allowedChars += (isWithUppercase ? _upperCaseLetters : '');
-    allowedChars += (isWithNumbers ? _numbers : '');
-    allowedChars += (isWithSpecial ? _special : '');
+    allowedChars += (allowLowercase ? _lowerCaseLetters : '');
+    allowedChars += (allowUppercase ? _upperCaseLetters : '');
+    allowedChars += (allowNumbers ? _numbers : '');
+    allowedChars += (allowSpecialChars ? _special : '');
 
     int i = 0;
     String result = "";
@@ -41,7 +41,7 @@ class PasswordGenerator {
     newChars.shuffle();
 
     //Create password
-    while (i < numberCharPassword) {
+    while (i < length) {
       //Get random int
       int randomInt = Random.secure().nextInt(newChars.length);
       //Get random char and append it to the password
