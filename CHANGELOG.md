@@ -6,8 +6,8 @@
 ## 0.0.2
 
 Changed model
-isWithLetters -> 
-isWithUppercase -> 
-isWithNumbers -> 
-isWithSpecial -> 
-numberCharPassword -> 
+isWithLetters -> allowLowercase
+isWithUppercase -> allowUppercase
+isWithNumbers -> allowNumbers
+isWithSpecial -> allowSpecialChars
+numberCharPassword -> length
